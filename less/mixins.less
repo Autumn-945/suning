@@ -1,0 +1,16 @@
+//遍历使用的是forxun循环
+//但是less没有循环语法
+//可以使用函数的迭代  缺点是死循环
+//可以根据数组的长度去停止当前的循环
+//并且给函数的执行附加条件
+//需要序号来判断  通过序号遍历从 @index 1开始
+//遍历成功
+.adapterMinxin(@index) when (@index > 0){
+    @media (min-width:extract(@adapterDeviceList,@index)) {
+        html{
+            font-size: @baseFontSize / @psdWidth * extract(@adapterDeviceList,@index);
+        }
+    }
+    .adapterMinxin(@index - 1);
+}
+
